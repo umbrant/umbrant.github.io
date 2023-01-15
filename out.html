@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>177 Noe Transit Arrivals</title>
+    <style>
+        h1 {
+            font-size: calc(1.5rem + 6vw);
+            padding-bottom: 0.5rem;
+            border-bottom: 0.5rem solid white;
+            margin: 0 auto;
+            display: block;
+            font-weight: normal;
+        }
+
+        body {
+            margin: 1rem;
+            font-family: 'Inter', sans-serif;
+            background-color: black;
+            color: white;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            padding-bottom: 100px;
+        }
+
+        p.greeting {
+            font-size: calc(1rem);
+            text-transform: uppercase;
+            margin: 0 auto;
+        }
+
+        .arrivals {
+            font-size: calc(1rem + 1vw);
+            border-collapse: separate;
+            border-spacing: 0 1em;
+            width: 90vw;
+        }
+
+        .eta, .muni, .stop {
+        }
+
+        .muni {
+            text-align: center;
+            border-radius: 50%;
+            width: 1rem;
+            height: 1rem;
+            padding: 10px;
+            color: #FFF;
+            font: 1rem Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .muni-J {
+            background-color: #e0871d;
+        }
+
+        .muni-K {
+            background-color: #559ebd;
+        }
+
+        .muni-L {
+            background-color: #94278d;
+        }
+
+        .muni-M {
+            background-color: #058754;
+        }
+
+        .muni-N {
+            background-color: #07487f;
+        }
+
+        .muni-T {
+            background-color: #d41244;
+        }
+
+        .warning {
+            background-color: yellow;
+            font-weight: bold;
+            color: black;
+        }
+
+        .footer {
+            font-size: 0.75rem;
+            position: absolute;
+            bottom: 0px;
+        }
+    </style>
+</head>
+<body>
+<p class="greeting">Estimated Time of Arrival</p>
+<h1>177 Noe</h1>
+<table class="arrivals">
+    
+        <tr>
+            <td class="eta">3 mins</td>
+            <td>
+                <div class="muni muni-M">M</div>
+            </td>
+            <td class="stop">Church Station</td>
+        </tr>
+    
+        <tr>
+            <td class="eta">10 mins</td>
+            <td>
+                <div class="muni muni-K">K</div>
+            </td>
+            <td class="stop">Church Station</td>
+        </tr>
+    
+        <tr>
+            <td class="eta">12 mins</td>
+            <td>
+                <div class="muni muni-N">N</div>
+            </td>
+            <td class="stop">Duboce Park</td>
+        </tr>
+    
+        <tr>
+            <td class="eta">13 mins</td>
+            <td>
+                <div class="muni muni-M">M</div>
+            </td>
+            <td class="stop">Church Station</td>
+        </tr>
+    
+        <tr>
+            <td class="eta">15 mins</td>
+            <td>
+                <div class="muni muni-J">J</div>
+            </td>
+            <td class="stop">Church &amp; Market</td>
+        </tr>
+    
+</table>
+<div class="footer clearfix">
+    <p id="lastupdated">Last updated <span id="elapsedtime">0 minutes ago</span> at Sat Jan 14 17:13:34 2023</p>
+    <p id="createdby">Crafted with care by umbrant</p>
+</div>
+
+
+<script>
+    const lastUpdatedString = "Sat Jan 14 17:13:34 2023";
+    const lastUpdated = Date.parse(lastUpdatedString);
+
+    function refreshElapsedTime() {
+        const now = Date.now();
+        const elapsedMs = now - lastUpdated;
+        const elapsedSecs = elapsedMs / 1000;
+        const elapsedMins = elapsedSecs / 60;
+        const elapsedMinsRounded = Math.floor(elapsedMins);
+        const elem = document.getElementById("elapsedtime");
+        elem.innerHTML = `${elapsedMinsRounded} minutes ago`;
+        if (elapsedMins > 2) {
+            document.getElementById("lastupdated").classList.add("warning");
+        }
+    }
+
+    refreshElapsedTime();
+    setInterval(refreshElapsedTime, 60 * 1000)
+</script>
+</body>
+</html>
