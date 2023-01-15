@@ -6,8 +6,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <title>177 Noe Transit Arrivals</title>
     <style>
+
+
         h1 {
-            font-size: calc(1.5rem + 6vw);
+            font-size: calc(2rem + 12vw);
             padding-bottom: 0.5rem;
             border-bottom: 0.5rem solid white;
             margin: 0 auto;
@@ -29,16 +31,16 @@
         }
 
         p.greeting {
-            font-size: calc(1rem);
+            font-size: calc(3rem);
             text-transform: uppercase;
             margin: 0 auto;
         }
 
         .arrivals {
-            font-size: calc(1rem + 1vw);
+            font-size: calc(1rem + 4vw);
             border-collapse: separate;
-            border-spacing: 0 1em;
-            width: 90vw;
+            border-spacing: 1rem 2rem;
+            width: 100vw;
         }
 
         .eta, .muni, .stop {
@@ -47,11 +49,12 @@
         .muni {
             text-align: center;
             border-radius: 50%;
-            width: 1rem;
-            height: 1rem;
-            padding: 10px;
+            width: calc(5rem);
+            height: calc(5rem);
+            padding: 1rem;
+            margin: 0 1rem;
             color: #FFF;
-            font: 1rem Arial, sans-serif;
+            font: calc(4rem) Arial, sans-serif;
             font-weight: bold;
         }
 
@@ -86,7 +89,7 @@
         }
 
         .footer {
-            font-size: 0.75rem;
+            font-size: calc(1rem + 2vw);
             position: absolute;
             bottom: 0px;
         }
@@ -98,23 +101,7 @@
 <table class="arrivals">
     
         <tr>
-            <td class="eta">3 mins</td>
-            <td>
-                <div class="muni muni-M">M</div>
-            </td>
-            <td class="stop">Church Station</td>
-        </tr>
-    
-        <tr>
-            <td class="eta">10 mins</td>
-            <td>
-                <div class="muni muni-K">K</div>
-            </td>
-            <td class="stop">Church Station</td>
-        </tr>
-    
-        <tr>
-            <td class="eta">12 mins</td>
+            <td class="eta">1 mins</td>
             <td>
                 <div class="muni muni-N">N</div>
             </td>
@@ -122,7 +109,15 @@
         </tr>
     
         <tr>
-            <td class="eta">13 mins</td>
+            <td class="eta">4 mins</td>
+            <td>
+                <div class="muni muni-J">J</div>
+            </td>
+            <td class="stop">Church &amp; Market</td>
+        </tr>
+    
+        <tr>
+            <td class="eta">8 mins</td>
             <td>
                 <div class="muni muni-M">M</div>
             </td>
@@ -130,22 +125,30 @@
         </tr>
     
         <tr>
-            <td class="eta">15 mins</td>
+            <td class="eta">8 mins</td>
             <td>
-                <div class="muni muni-J">J</div>
+                <div class="muni muni-K">K</div>
             </td>
-            <td class="stop">Church &amp; Market</td>
+            <td class="stop">Church Station</td>
+        </tr>
+    
+        <tr>
+            <td class="eta">17 mins</td>
+            <td>
+                <div class="muni muni-N">N</div>
+            </td>
+            <td class="stop">Duboce Park</td>
         </tr>
     
 </table>
 <div class="footer clearfix">
-    <p id="lastupdated">Last updated <span id="elapsedtime">0 minutes ago</span> at Sat Jan 14 17:13:34 2023</p>
+    <p id="lastupdated">Last updated <span id="elapsedtime">0 mins ago</span> at Sat Jan 14 20:11:33 2023</p>
     <p id="createdby">Crafted with care by umbrant</p>
 </div>
 
 
 <script>
-    const lastUpdatedString = "Sat Jan 14 17:13:34 2023";
+    const lastUpdatedString = "Sat Jan 14 20:11:33 2023";
     const lastUpdated = Date.parse(lastUpdatedString);
 
     function refreshElapsedTime() {
@@ -155,7 +158,7 @@
         const elapsedMins = elapsedSecs / 60;
         const elapsedMinsRounded = Math.floor(elapsedMins);
         const elem = document.getElementById("elapsedtime");
-        elem.innerHTML = `${elapsedMinsRounded} minutes ago`;
+        elem.innerHTML = `${elapsedMinsRounded} mins ago`;
         if (elapsedMins > 2) {
             document.getElementById("lastupdated").classList.add("warning");
         }
